@@ -5,6 +5,7 @@ let arrInfo=[];
 if(localStorage.arrInfo != null){
   arrInfo=JSON.parse(localStorage.arrInfo);
     console.log("arrlocal"+localStorage.arrInfo)
+    // localStorage.clear();
         render();
   }
 
@@ -22,7 +23,6 @@ function Student(name,date,gender,major,phone,img){
 
 
 form.addEventListener("submit",handlSubmit)
-
 function handlSubmit (e) {
   e.preventDefault();
   const name = e.target.fname.value;
@@ -40,11 +40,12 @@ function handlSubmit (e) {
   let studentToStr=JSON.stringify(arrInfo)
   localStorage.setItem("arrInfo",studentToStr)
   console.log(localStorage)
-     
+  //  localStorage.clear() 
   render();
   }
   
   function render(){
+    userCard.textContent=""
   for (let index = 0; index < arrInfo.length; index++) {
    let cardSt=document.createElement("div")
    userCard.appendChild(cardSt)
